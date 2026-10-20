@@ -473,7 +473,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* ----- Typewriter effect ----- */
-  const words = ["DATA ENGINEER", "DATA SCIENTIST", "GIS ANALYST", "PROGRAMMER"];
+  // Typed after the fixed "Data " (see .role in index.html)
+  const words = ["ENGINEER", "SCIENTIST", "ANALYST"];
   let wordIndex = 0;
   let charIndex = 0;
   const typeSpan = document.querySelector(".typewriter-text");
