@@ -473,7 +473,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* ----- Typewriter effect ----- */
-  const words = ["DATA ANALYST", "PROGRAMMER", "SOFTWARE ENGINEER"];
+  const words = ["DATA ENGINEER", "DATA SCIENTIST", "GIS ANALYST", "PROGRAMMER"];
   let wordIndex = 0;
   let charIndex = 0;
   const typeSpan = document.querySelector(".typewriter-text");
