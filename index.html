@@ -3,160 +3,212 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Card</title>
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600&display=swap" rel="stylesheet">
+    <title>Shane Dang | Data Scientist</title>
+    <meta name="description" content="Shane Dang — data scientist with a background in transportation research, data analysis, programming, and data visualization.">
+    <meta name="theme-color" content="#060912">
+    <meta property="og:title" content="Shane Dang | Data Scientist">
+    <meta property="og:description" content="Data scientist with a background in transportation research, data analysis, programming, and data visualization.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shanekdang.github.io/">
+    <meta property="og:image" content="https://shanekdang.github.io/media/headshot.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="media/icon.ico" type="image/x-icon">
-    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-        <nav>
-            <ul>
-                <li><a id="homeLink" href="index.html?flip=front">Home</a></li>
-                <li><a id="aboutLink" href="index.html?flip=back">About</a></li>
-                <li><a id="portfolioLink" href="#">Portfolio</a></li>
-                <li><a id="contactLink" href="#">Contact</a></li>
+    <!-- Animated background -->
+    <div class="bg" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="bg-grid"></div>
+    </div>
+
+    <header class="nav-wrap">
+        <nav class="nav">
+            <a class="brand" href="?flip=front" id="brandLink">
+                <img src="media/icon.png" alt="">
+                <span>Shane Dang</span>
+            </a>
+            <ul class="nav-links">
+                <li><a id="homeLink" href="?flip=front">Home</a></li>
+                <li><a id="aboutLink" href="?flip=back">About</a></li>
+                <li><a id="portfolioLink" href="#portfolio">Portfolio</a></li>
             </ul>
+            <a class="nav-cta" href="mailto:shanedang17@gmail.com">
+                <i class='bx bx-paper-plane'></i><span>Let's talk</span>
+            </a>
         </nav>
-        </div>
     </header>
 
-    <video autoplay loop muted playsinline class="back-vid">
-        <source src="media/data.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <main class="stage">
+        <section class="card-view" id="cardView">
+            <div class="card-scene" id="cardScene">
+                <div class="card-tilt" id="cardTilt">
+                    <!-- Polaroid tucked behind the card (shown on the back side) -->
+                    <button type="button" class="polaroid" id="polaroid" aria-label="Photo of my 1992 Mazda MX-5 Miata" aria-expanded="false">
+                        <img src="media/car.jpg" alt="Shane's 1992 Mazda MX-5 Miata" loading="lazy">
+                        <span class="polaroid-caption">my '92 Miata</span>
+                    </button>
 
-    <main class="main-section">
-        <div class="card-container">
-            <div class="flip-button-container">
-                <button id="flipToggleBtn" class="flip-glow-button">Flip Card for More >></button>
+                    <div class="card" id="businessCard" tabindex="0" role="group" aria-roledescription="business card" aria-label="Business card. Press Enter to flip.">
+
+                        <!-- ---------- FRONT ---------- -->
+                        <article class="side front">
+                            <div class="side-top">
+                                <span class="mono-label">// shanekdang.github.io</span>
+                                <span class="flip-hint"><i class='bx bx-revision'></i> flip</span>
+                            </div>
+
+                            <div class="front-body">
+                                <div class="intro">
+                                    <p class="eyebrow reveal" style="--d: .35s">Hi, I'm</p>
+                                    <h1 class="name reveal" style="--d: .45s">Shane Dang</h1>
+                                    <p class="role reveal" style="--d: .55s">
+                                        <span class="role-prefix">I'm a</span>
+                                        <span class="typewriter-text gradient-text"></span><span class="cursor" aria-hidden="true"></span>
+                                    </p>
+                                    <p class="quote reveal" style="--d: .65s">
+                                        “I would love to change the world, but God won't give me the source code.”
+                                    </p>
+
+                                    <div class="actions reveal" style="--d: .75s">
+                                        <a class="btn btn-primary" href="media/resume.pdf" target="_blank" download="Shane_Dang_Resume_2026.pdf">
+                                            <i class='bx bx-download'></i> Resume
+                                        </a>
+                                        <a class="btn btn-ghost" href="media/shane-dang.vcf" download>
+                                            <i class='bx bx-id-card'></i> Save contact
+                                        </a>
+                                        <div class="socials">
+                                            <a href="mailto:shanedang17@gmail.com" aria-label="Email"><i class='bx bx-envelope'></i></a>
+                                            <a href="https://github.com/shanekdang" target="_blank" rel="noopener" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                                            <a href="https://www.linkedin.com/in/shane-dang/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mascot reveal" style="--d: .5s">
+                                    <div class="mascot-glow"></div>
+                                    <img src="media/icon.png" alt="Shane's mascot">
+                                </div>
+                            </div>
+
+                            <ul class="stats reveal" style="--d: .9s">
+                                <li><strong class="gradient-text">3+</strong><span>Years of<br>experience</span></li>
+                                <li><strong class="gradient-text">7+</strong><span>Technical<br>skills</span></li>
+                                <li><strong class="gradient-text">20+</strong><span>Projects<br>completed</span></li>
+                                <li><strong class="gradient-text">20+</strong><span>Satisfied<br>clients</span></li>
+                            </ul>
+                        </article>
+
+                        <!-- ---------- BACK ---------- -->
+                        <article class="side back">
+                            <div class="back-photo">
+                                <img src="media/headshot.jpg" alt="Shane Dang">
+                                <div class="back-photo-info">
+                                    <div class="photo-name">
+                                        <h2>Shane Dang</h2>
+                                        <p>Data Scientist</p>
+                                    </div>
+                                    <div class="photo-links">
+                                        <a href="mailto:shanedang17@gmail.com" aria-label="Email" title="Email"><i class='bx bx-envelope'></i></a>
+                                        <button class="copy-btn" id="copyEmailBtn" type="button" aria-label="Copy email address" title="Copy email">
+                                            <i class='bx bx-copy'></i>
+                                        </button>
+                                        <a href="https://github.com/shanekdang" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><i class='bx bxl-github'></i></a>
+                                        <a href="https://www.linkedin.com/in/shane-dang/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="back-main">
+                                <div class="side-top">
+                                    <span class="mono-label">// about</span>
+                                    <span class="flip-hint"><i class='bx bx-revision'></i> flip</span>
+                                </div>
+
+                                <div class="about-content">
+                                    <p class="about-lead">Hi, I’m Shane — a data scientist with a strong foundation in <span class="gradient-text">transportation research</span>, combining over three years of experience in data analysis, programming, and crafting clear, actionable visualizations.</p>
+                                    <p>My journey started with a natural curiosity for how things work and, in turn, led to a strong desire to improve how things operate — whether that meant reverse-engineering a software tool or rebuilding parts of my
+                                        <span class="hover-car" id="carLink" tabindex="0" role="button" aria-expanded="false" aria-controls="polaroid">1992 Mazda MX-5 Miata</span>.
+                                        That same hands-on mindset drives my professional work, where I thrive on solving complex problems, building efficient workflows, and translating data into stories that people can understand and act on.</p>
+                                    <p>With a background that bridges technical execution and direct customer interaction, I value not only clean code and scalable systems, but also human-centered solutions that work in the real world.</p>
+                                    <ul class="focus-chips" aria-label="Focus areas">
+                                        <li>Data Analysis</li>
+                                        <li>Programming</li>
+                                        <li>Data Visualization</li>
+                                        <li>Transportation Research</li>
+                                    </ul>
+                                </div>
+
+                                <div class="back-footer">
+                                    <p class="closing-note">Let’s build something awesome together! 🚀</p>
+                                    <a class="footer-email" href="mailto:shanedang17@gmail.com">shanedang17@gmail.com <i class='bx bx-right-arrow-alt'></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
             </div>
-            <div class="card" id="businessCard">
-                <div class="side front">
-                    <div class="hero-card">
-                        <div class="hero-info">
-                            <h1 data-aos="fade-right" data-aos-duration="1000" data-aos-delay="700">Hi, I'm Shane!</h1>
-                            <h2 class="typewriter gradient-text" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="900">
-                                I'm a <span class="typewriter-text"></span><span class="cursor">|</span>
-                            </h2>
-                        </div>
-                        <div class="hero-subtext" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="1100">
-                            <p> ~ <i>I would love to change the world</i> . . .</p> 
-                            <p class="indent"><i>but God won't give me the source code</i> ~</p>
-                        </div>
-                        <div class="hero-buttons">
-                            <a href="/media/resume.pdf" target="_blank" class="btn" download data-aos="zoom-in-right" data-aos-duration="2500" data-aos-delay="1400">Download Resume</a>
-                        </div>
-                        <div class="card-icon-container" data-aos="zoom-in-left" data-aos-duration="2500">
-                            <img src="media/icon.png" alt="Brand Icon" class="card-icon">
-                        </div>
-                    </div>
-                    <div class="info-sec">
-                        <div class="info-card" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1600">
-                            <h1 class="gradient-text">2+</h1>
-                            <p>Years of <br> Experience</p>
-                        </div>
-                        <div class="info-card" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1700">
-                            <h1 class="gradient-text">7+</h1>
-                            <p>Technical <br> Skills</p>
-                        </div>
-                        <div class="info-card" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1800">
-                            <h1 class="gradient-text">20+</h1>
-                            <p>Projects <br> Completed</p>
-                        </div>
-                        <div class="info-card" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1900">
-                            <h1 class="gradient-text">20+</h1>
-                            <p>Satisfied <br> Clients</p>
-                        </div>
-                    </div>
+
+            <div class="card-controls reveal" style="--d: 1s">
+                <div class="side-toggle" role="group" aria-label="Card side">
+                    <span class="side-toggle-thumb" aria-hidden="true"></span>
+                    <button type="button" data-side="front" class="is-active">Front</button>
+                    <button type="button" data-side="back">Back</button>
                 </div>
-                <div class="side back card-back">
-                    <div class="card-back-left">
-                        <div class="about-img" data-aos="zoom-in-right" data-aos-duration="2500">
-                            <img src="media/headshot.jpg" alt="Shane Dang">
-                        </div>
-
-                        <ul class="ul-icons">
-                            <li>
-                                <div class="icon-row">
-                                <a href="mailto:shanedang17@gmail.com" aria-label="Email">
-                                    <i class='bx bx-envelope'></i>
-                                </a>
-                                <span>shanedang17@gmail.com</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon-row">
-                                <a href="https://github.com/shanekdang" aria-label="GitHub Profile">
-                                    <i class='bx bxl-github'></i>
-                                </a>
-                                <span>www.github.com/shanekdang</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon-row">
-                                <a href="https://www.linkedin.com/in/shane-dang/" aria-label="LinkedIn Profile">
-                                    <i class='bx bxl-linkedin'></i>
-                                </a>
-                                <span>www.linkedin.com/in/shane-dang</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card-back-right">
-                        <div class="about-content">
-                            <p>Hi, I’m Shane — a data scientist with a strong foundation in transportation research, combining over two years of experience in data analysis, programming, and crafting clear, actionable visualizations.</p>
-                            <p>My journey started with a natural curiosity for how things work and, in turn, led to a strong desire to improve how things operate — whether that meant reverse-engineering a software tool or rebuilding parts of my 
-                                <span class="hover-car">
-                                    1992 Mazda MX-5 Miata
-                                <img src="media/car.jpg" alt="Mazda MX-5 Miata" class="car-tooltip">
-                                </span>
-                                . That same hands-on mindset drives my professional work, where I thrive on solving complex problems, building efficient workflows, and translating data into stories that people can understand and act on.</p>
-                            <p>With a background that bridges technical execution and direct customer interaction, I value not only clean code and scalable systems, but also human-centered solutions that work in the real world.</p>
-                            <p class="closing-note">Let’s build something awesome together! 🚀</p>
-                        </div>
-                    </div>
-                </div>
-
-
+                <p class="hint">Click the card to flip it</p>
             </div>
-        </div>
-        <section class="portfolio-section hidden" id="portfolioSection">
-            <h2 class="portfolio-title">My Portfolio</h2>
-            <div class="portfolio-scroll">
-                <div class="portfolio-item">
-                <img src="media/project1.jpg" alt="Project 1">
-                <div class="portfolio-overlay">
-                    <h3>Project One</h3>
-                    <p>Short description for project one.</p>
+        </section>
+
+        <section class="portfolio-section" id="portfolioSection" inert>
+            <div class="portfolio-inner">
+                <div class="portfolio-head">
+                    <p class="mono-label">// portfolio</p>
+                    <h2 class="portfolio-title">Selected work</h2>
                 </div>
+
+                <!-- Folder of project pages (pages are built from projects.js) -->
+                <div class="folder" id="folder">
+                    <div class="folder-back"></div>
+                    <div class="folder-pages" id="folderPages"></div>
+                    <div class="folder-front" aria-hidden="true">
+                        <span class="folder-tab">// projects</span>
+                        <div class="folder-label">
+                            <span class="folder-name">Shane Dang</span>
+                            <span class="mono-label">portfolio · selected work</span>
+                        </div>
+                        <span class="mono-label" id="folderCount"></span>
+                    </div>
                 </div>
-                <div class="portfolio-item">
-                <img src="media/project2.jpg" alt="Project 2">
-                <div class="portfolio-overlay">
-                    <h3>Project Two</h3>
-                    <p>Short description for project two.</p>
-                </div>
-                </div>
-                <div class="portfolio-item">
-                <img src="media/project3.jpg" alt="Project 3">
-                <div class="portfolio-overlay">
-                    <h3>Project Three</h3>
-                    <p>Short description for project three.</p>
-                </div>
+
+                <div class="portfolio-foot">
+                    <button type="button" class="btn btn-ghost" id="backToCardBtn">
+                        <i class='bx bx-left-arrow-alt'></i> Back to card
+                    </button>
+                    <p class="hint"><span class="hint-hover">Hover a file · click to open it</span><span class="hint-touch">Tap a file to open it</span></p>
                 </div>
             </div>
         </section>
     </main>
 
-    <script src="script.js" defer></script>
+    <!-- Project page that opens out of the folder -->
+    <div class="doc-viewer" id="docViewer" aria-hidden="true">
+        <div class="doc-backdrop" data-close></div>
+        <article class="doc-sheet" id="docSheet" role="dialog" aria-modal="true" aria-labelledby="docTitle">
+            <button type="button" class="doc-close" id="docClose" data-close aria-label="Close project">
+                <i class='bx bx-x'></i>
+            </button>
+            <div class="doc-content" id="docContent"></div>
+        </article>
+    </div>
 
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="projects.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
-
-
-
