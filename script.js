@@ -452,6 +452,49 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  /* ----- Light / dark theme ----- */
+  // The initial theme is set by the inline script in <head>; this wires up the toggle
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const THEME_COLORS = { light: '#fbf9ff', dark: '#060912' };
+
+  function applyTheme(theme) {
+    root.dataset.theme = theme;
+    const isDark = theme === 'dark';
+    themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    themeToggle.querySelector('i').className = isDark ? 'bx bx-sun' : 'bx bx-moon';
+    themeMeta.content = THEME_COLORS[theme];
+  }
+
+  function savedTheme() {
+    try { return localStorage.getItem('theme'); } catch { return null; }
+  }
+
+  // Tracked here (not read back from the page) because the cross-fade applies the change a frame later,
+  // and a quick second click must still flip from the newly chosen theme
+  let currentTheme = root.dataset.theme === 'dark' ? 'dark' : 'light';
+  applyTheme(currentTheme);
+
+  themeToggle.addEventListener('click', () => {
+    const next = currentTheme === 'dark' ? 'light' : 'dark';
+    currentTheme = next;
+    try { localStorage.setItem('theme', next); } catch { /* private mode: still switch for this visit */ }
+    // Cross-fade between themes where the browser supports it
+    if (document.startViewTransition && !reduceMotion) {
+      document.startViewTransition(() => applyTheme(next));
+    } else {
+      applyTheme(next);
+    }
+  });
+
+  // Follow the device setting live until the visitor picks a theme themselves
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (savedTheme()) return;
+    currentTheme = e.matches ? 'dark' : 'light';
+    applyTheme(currentTheme);
+  });
+
   /* ----- Copy email ----- */
   let toastTimer;
   function showToast(message) {

@@ -5,7 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Shane Dang | Data Engineer &amp; Scientist</title>
     <meta name="description" content="Shane Dang — data engineer and scientist building ETL pipelines, data warehouses, geospatial analysis, and interactive dashboards for transportation research.">
-    <meta name="theme-color" content="#060912">
+    <meta name="theme-color" content="#fbf9ff">
+    <script>
+        // Pick the theme before the page paints: saved choice, else the device setting
+        (function () {
+            var theme = null;
+            try { theme = localStorage.getItem('theme'); } catch (e) {}
+            if (theme !== 'light' && theme !== 'dark') {
+                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
     <meta property="og:title" content="Shane Dang | Data Engineer &amp; Scientist">
     <meta property="og:description" content="Data engineer and scientist building ETL pipelines, data warehouses, geospatial analysis, and interactive dashboards for transportation research.">
     <meta property="og:type" content="website">
@@ -38,6 +49,9 @@
                 <li><a id="aboutLink" href="?flip=back">About</a></li>
                 <li><a id="portfolioLink" href="#portfolio">Portfolio</a></li>
             </ul>
+            <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" title="Switch theme">
+                <i class='bx bx-moon'></i>
+            </button>
             <a class="nav-cta" href="mailto:shanedang17@gmail.com">
                 <i class='bx bx-paper-plane'></i><span>Let's talk</span>
             </a>
